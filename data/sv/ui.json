@@ -5,5 +5,6 @@
   "mains" : "Huvudrätter",
   "sideorders" : "Tillbehör",
   "drinks" : "Drycker",
-  "ready" : "Klart"
+  "ready" : "Klart",
+  "table" : "Bord"
 }

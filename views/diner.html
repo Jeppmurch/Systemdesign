@@ -34,6 +34,17 @@
       <input type="checkbox" name="item[]" :value="menuitem.label" />
       {{menuitem.label}}, {{menuitem.size}} cl, {{menuitem.price}}:-
     </label>
+
+		<!-- JOEL: Added tables -->
+		<h1>{{ uiLabels.table }}</h1>
+		<select v-model="selected" id="tableId">
+  	  <option v-for="option in options" v-bind:value="option.value">
+    	  {{ option.text }}
+  		</option>
+	  </select>
+		<a href="pub_map_v1.jpg">Layout 1</a>    <a href="pub_map_v2.jpg">Layout 2</a>
+		<br/><br/>
+		
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
     <h2>{{ uiLabels.ordersInProgress }}</h2>
