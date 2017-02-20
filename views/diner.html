@@ -15,6 +15,7 @@
 <main>
 <body>
   <div id="ordering">
+    <div id="food">
     <h1>{{ uiLabels.mains }}</h1>
 
 
@@ -23,6 +24,20 @@
           
         </table>
     </section>
+    </div>
+      
+    <div id="drinkar">
+    <h1>{{ uiLabels.drinks }}</h1>
+
+    <section id="tableDrink">
+      <table>
+          
+      </table>
+    </section>
+      
+      
+    </div>  
+      
 
 
     <!--<div v-for="menuitem in menu.foods">
@@ -51,13 +66,7 @@
       <input type="checkbox" name="item[]" :value="menuitem.label" />
       {{menuitem.label}}, {{menuitem.price}}:-
     </label>-->
-    <h1>{{ uiLabels.drinks }}</h1>
-
-    <section id="tableDrink">
-      <table>
-          
-      </table>
-    </section>
+    
 
     <!--<label v-for="menuitem in menu.drinks">
       
@@ -79,8 +88,22 @@
     <div id="layout"></div>
     <br/><br/>
 
-
-
+    <div class="hr"><hr /></div>
+      
+    
+    <div id="kinfo">
+    <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
+    <h2>{{ uiLabels.ordersInProgress }}</h2>
+    <ol>
+      <li v-for="(item, key) in orders" v-if="!item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
+    </ol>
+    <h2>{{ uiLabels.ordersFinished }}</h2>
+    <ol>
+      <li v-for="(item, key) in orders" v-if="item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
+    </ol>
+    </div>
+      
+    <div id="order">
     <h1>Nuvarande beställning</h1>
     
     <section id="currentOrders">
@@ -98,18 +121,9 @@
       </table>
     </section>
 
-
-
-    <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
-    <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
-    <h2>{{ uiLabels.ordersInProgress }}</h2>
-    <ol>
-      <li v-for="(item, key) in orders" v-if="!item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
-    </ol>
-    <h2>{{ uiLabels.ordersFinished }}</h2>
-    <ol>
-      <li v-for="(item, key) in orders" v-if="item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
-    </ol>
+    <button v-on:click="placeOrder()" id="button">{{ uiLabels.placeOrder }}</button>
+    </div>
+      
   </div>
 
 

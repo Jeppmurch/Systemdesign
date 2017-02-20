@@ -3,6 +3,7 @@ var foods = [
       "order": 1,
       "label": "Hamburgare",
       "price": 65,
+      "img":"https://addicted2success.com/wp-content/uploads/2015/02/Arnold-Schwarzenegger-Champion-BodyBuilder.jpg",
       "details": [
         { "extra": "Lök",
           "price": 0
@@ -13,6 +14,7 @@ var foods = [
       "order": 2,
       "label": "Ostburgare",
       "price": 70,
+      "img":"",
       "details": [
         { "extra": "Lök",
           "price": 0
@@ -26,6 +28,7 @@ var foods = [
       "order": 3,
       "label": "Veganburgare",
       "price": 65,
+      "img":"",
       "details": [
         { "extra": "Lök",
           "price": 0

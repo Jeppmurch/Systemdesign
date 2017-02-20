@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+head{
+ margin: 5px 12px 5px 12px;  
+ padding: 8px; 
+ height: 200px;
+ overflow:hidden;
+ 
+}
+
+
+h1{
+ 
+ color: black; 
+ padding: 50px 45px 20px;
+ 
+ 
+    
+}
+
+#food{
+    float:left;  
+    width:50%;
+}
+
+#drinkar{
+
+}
+
+.hr{
+    width:auto;
+}
+
+#button{
+    background-color: #4CAF50;
+    border-radius: 20px;
+    padding: 15px 32px;
+    transition-duration: 0.35s;
+    
+}
+
+#button:hover{
+    /*background-color: #4CAF50;*/
+    color:white;
+       
+}
+
+#order{
+    float:right;
+}
+
+#kinfo{
+    float:left;
+    width:50%;
+    
+}

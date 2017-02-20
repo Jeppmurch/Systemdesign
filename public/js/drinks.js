@@ -11,7 +11,7 @@ function docLoaded(fn){
 function drinkTable() {
     for (var i = 0; i < drinks.length; i++){
 
-    if((i % 3) == 0){
+    if((i % 2) == 0){
       var tr = document.createElement('tr');
       document.getElementById('tableDrink').appendChild(tr);
     }
@@ -29,6 +29,9 @@ function drinkTable() {
     button.name = drinks[i].label;
 
     button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
 
 
     label.appendChild(button);
@@ -45,6 +48,12 @@ function foodTable(){
       var tr = document.createElement('tr');
       document.getElementById('tableFood').appendChild(tr);
     }
+      
+    var importedImage = foods[i].img;
+    var image = document.createElement("img");
+    image.setAttribute("src", importedImage);
+    image.style.height = '15em';
+    image.style.width = '15em';
 
     var td = document.createElement('td');
     td.id = foods[i].label;
@@ -59,6 +68,9 @@ function foodTable(){
     button.name = foods[i].label;
     button.addEventListener("click", createAddToList( td ) );
 
+    label.appendChild(image);
+    var br = document.createElement("br");
+    td.appendChild(br);
     label.appendChild(button);
     td.appendChild(label);
 
