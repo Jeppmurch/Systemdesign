@@ -42,7 +42,9 @@
     	  {{ option.text }}
   		</option>
 	  </select>
-		<a href="pub_map_v1.jpg">Layout 1</a>    <a href="pub_map_v2.jpg">Layout 2</a>
+		<button onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+		<button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
+		<div id="layout"></div>
 		<br/><br/>
 		
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>

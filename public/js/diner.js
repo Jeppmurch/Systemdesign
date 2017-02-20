@@ -13,12 +13,38 @@ function getOrderNumber() {
   return "#" + getRandomInt(1, 1000000);
 }
 
+function show_layout(src, id) {
+		var img;
+		var dest = document.getElementById("layout");
+		
+		if(img = document.getElementById("imgId")) {
+				if(img.value == id)
+						dest.removeChild(img);
+				else {
+						img.src = src;
+						img.value = id;
+				}
+				
+		}
+		else {
+				img = document.createElement("img");
+				img.src = src;
+				img.id = "imgId";
+				img.value = id;
+				img.width = 600;
+				img.height = 600;
+				dest.appendChild(img);
+		}
+		
+}
+
 new Vue({
 		el: '#ordering',
 		mixins: [sharedVueStuff], // include stuff that goes to both diner and kitchen
 		data: {
-				selected: '1',
+				selected: 0,
 				options: [
+						{ text: 'Välj bord här', value: 0},
 						{ text: '1', value: 1 },
 						{ text: '2', value: 2 },
 						{ text: '3', value: 3 },
@@ -50,15 +76,18 @@ new Vue({
 								return i.value;
 						});
 						var tablelist = document.getElementById('tableId');
-						var tablenr = 'Table: ';
+						var tablenr = 0;
 						for (var j = 0; j < tablelist.length; j++) {
 								if(tablelist.options[j].selected) {
-										var tablenr = tablenr.concat(tablelist.options[j].value); 
+										var tablenr = tablelist.options[j].value; 
 								}
 						}
 						// OK, it's not really neat to use two different ways of accomplishing the same thing
 						// but let's pretend it's for an educational purpose ... here comes another no-no:
-						var orderItems = mainCourse.concat(extras).concat(theRest).concat(tablenr);
+						var orderItems = mainCourse.concat(extras).concat(theRest);
+						if(tablenr != 0)
+								orderItems = orderItems.concat('Table: '+tablenr);
+						
 						// Finally we make use of socket.io's magic to send the stuff to the kitchen
 						socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
 				}
