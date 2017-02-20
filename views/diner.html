@@ -5,17 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nationsmatsalen</title>
   <link rel="stylesheet" href="css/nationPub.css">
+  <script src="data/menu.js"></script>
+  <script src="js/drinks.js"></script>
+  <!--  <script type="text/javascript" src="data/menu.json"></script> DOESN'T WORK  -->
+  <script>
+    window.onload = docLoaded(indexPageLoaded);
+  </script>
 </head>
+<main>
 <body>
   <div id="ordering">
     <h1>{{ uiLabels.mains }}</h1>
-    <div v-for="menuitem in menu.foods">
+
+
+    <section id="tableFood">
+      <table>
+          
+        </table>
+    </section>
+
+
+    <!--<div v-for="menuitem in menu.foods">
       <h2>
         <label>
           <input type="checkbox" v-model="mainDish" :value="menuitem.label" />
           {{menuitem.label}}, {{menuitem.price}}:-
         </label>
-      </h2>
+      </h2> 
       <div>
         Extra: 
         <label v-for="detail in menuitem.details">
@@ -23,17 +39,66 @@
           {{detail.extra}}, {{detail.price}}:-
         </label>      
       </div>
-    </div>
+    </div> -->
     <h1>{{ uiLabels.sideorders }}</h1>
-    <label v-for="menuitem in menu.sideorders">
+    <section id="sideorderTable">
+      <table>
+
+      </table>
+    </section>
+
+    <!--<label v-for="menuitem in menu.sideorders">
       <input type="checkbox" name="item[]" :value="menuitem.label" />
       {{menuitem.label}}, {{menuitem.price}}:-
-    </label>
+    </label>-->
     <h1>{{ uiLabels.drinks }}</h1>
-    <label v-for="menuitem in menu.drinks">
+
+    <section id="tableDrink">
+      <table>
+          
+      </table>
+    </section>
+
+    <!--<label v-for="menuitem in menu.drinks">
+      
       <input type="checkbox" name="item[]" :value="menuitem.label" />
       {{menuitem.label}}, {{menuitem.size}} cl, {{menuitem.price}}:-
-    </label>
+
+    </label>-->
+
+
+    <h1>{{ uiLabels.table }}</h1>
+    <select v-model="selected" id="tableId">
+      <option v-for="option in options" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <button onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
+    <div id="layout"></div>
+    <br/><br/>
+
+
+
+    <h1>Nuvarande beställning</h1>
+    
+    <section id="currentOrders">
+      <table id="orderTable">
+        <thead>
+          <tr>
+            <td>Antal</td><td>Vara</td><td>Pris</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td></td><td></td><td id="totalPrice">0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+
+
     <button v-on:click="placeOrder()">{{ uiLabels.placeOrder }}</button>
     <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
     <h2>{{ uiLabels.ordersInProgress }}</h2>
@@ -45,9 +110,20 @@
       <li v-for="(item, key) in orders" v-if="item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
     </ol>
   </div>
+
+
+
+
+
+
+
+
+
+  <script src="js/drinks.js"></script>
   <script src="/vue/vue.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/nationPub.js"></script>
   <script src="js/diner.js"></script>
 </body>
+</main>
 </html>
