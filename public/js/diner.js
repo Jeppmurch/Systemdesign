@@ -84,19 +84,22 @@ new Vue({
             }
 
 						var orderItems = mainCourse.concat(extras).concat(theRest);
-						
 						var ot = document.getElementById('orderTable');
-						var nrRows = ot.rows.length - 2;
-						var i = 1;
-						//var orderItems;
-						while(i <= nrRows) {
-								//alert(ot.rows[i].cells[1].innerHTML);
-								//alert(ot.rows[i].cells[2].innerHTML);
-								orderItems = orderItems.concat(ot.rows[i].cells[0].innerHTML
+						var nrRows = ot.rows.length;
+
+						for(var i = 1; i < nrRows - 1; i++) {
+								orderItems = orderItems.concat(ot.rows[1].cells[0].innerHTML
 																							 + ' st '
-																							 + ot.rows[i].cells[1].innerHTML);
-								i++;
+																							 + ot.rows[1].cells[1].innerHTML);
+								ot.rows[1].remove();
 						}
+
+						// for(var i = 1; i < nrRows - 1; i++) {
+						// 		ot.rows[1].remove(); // Remove first row nrRow times
+						// }
+
+						// reset price
+						ot.rows[1].cells[2].innerHTML = 0;
 
 						
             // OK, it's not really neat to use two different ways of accomplishing the same thing
@@ -107,6 +110,7 @@ new Vue({
             
             // Finally we make use of socket.io's magic to send the stuff to the kitchen
             socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
+						
         }
     }
 });
