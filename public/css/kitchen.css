@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
+
+head{
+ margin: 5px 12px 5px 12px;  
+ padding: 8px; 
+ height: 200px;
+ overflow:hidden;
+ 
+}
+
+
+h1{
+ 
+ color: black; 
+ padding: 50px 45px 20px;
+ 
+ 
+    
+}
+
+#kitchenLeft{
+
+    float: left;
+}
+
+#kitchenRight{
+     float: right;  
+}
