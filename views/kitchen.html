@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nationsköket</title>
   <link rel="stylesheet" href="css/nationPub.css">
+
+  <script src="data/menu.js"></script>
+  <script src="js/kit_view.js"></script>
+  <script>
+    window.onload = docLoaded(indexPageLoaded);
+  </script>
 </head>
 <body>
   <div id="orders">
@@ -24,9 +30,31 @@
       </li>
     </ol>
   </div>
+
+    <img src="pub_map_v1.jpg" height="200" width="200">
+      
+    <div id="order">
+    <h3>Batches</h3>
+    
+    <section id="batch">
+    </section>
+
+    </div>
+      
+  </div>
+
+
+
+
+
+  <script src="js/kit_view.js"></script>
   <script src="/vue/vue.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/nationPub.js"></script>
+  <!--<script src="js/diner.js"></script>-->
   <script src="js/kitchen.js"></script>
+
+  
+
 </body>
 </html>
