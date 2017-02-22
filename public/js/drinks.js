@@ -32,6 +32,7 @@ function drinkTable() {
     button.style.height="4em";
     button.style.width="20em";
     button.style.textAlign="center";
+    button.fontStyle="oblique";
 
 
     label.appendChild(button);
@@ -52,8 +53,8 @@ function foodTable(){
     var importedImage = foods[i].img;
     var image = document.createElement("img");
     image.setAttribute("src", importedImage);
-    image.style.height = '15em';
-    image.style.width = '15em';
+    image.style.height = '300px';
+    image.style.width = '300px';
 
     var td = document.createElement('td');
     td.id = foods[i].label;
@@ -67,6 +68,10 @@ function foodTable(){
     button.value = foods[i].label + ", " + foods[i].price + ":-";
     button.name = foods[i].label;
     button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
+    button.fontStyle="oblique";
 
     label.appendChild(image);
     var br = document.createElement("br");
@@ -151,6 +156,10 @@ function sideorderTable(){
     button.value = button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
     button.name = "item[]";
     button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
+    button.fontStyle="oblique";
 
 
     label.appendChild(button);
