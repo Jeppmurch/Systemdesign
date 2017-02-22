@@ -9,37 +9,37 @@ function docLoaded(fn){
 
 
 function drinkTable() {
-	for (var i = 0; i < drinks.length; i++){
+	for (var i = 0; i < drinks.length-1; i++){
 
-	if((i % 2) == 0){
-	  var tr = document.createElement('tr');
-	  document.getElementById('tableDrink').appendChild(tr);
-	}
+		if((i % 3) == 0){
+		  var tr = document.createElement('tr');
+		  document.getElementById('tableDrink').appendChild(tr);
+		}
 
-	var td = document.createElement('td');
-	td.id = drinks[i].label;
-	td.value = drinks[i].price;
+		var td = document.createElement('td');
+		td.id = drinks[i].label;
+		td.value = drinks[i].price;
 
-	var label = document.createElement('label');
-	label.htmlfor = drinks[i].label;
+		var label = document.createElement('label');
+		label.htmlfor = drinks[i].label;
 
-	var button = document.createElement('input');
-	button.type = "submit";
-	button.value = drinks[i].label + ", " + drinks[i].size + "cl, " + drinks[i].price + ":-";
-	button.name = drinks[i].label;
-
-
-    button.addEventListener("click", createAddToList( td ) );
-    button.style.height="4em";
-    button.style.width="20em";
-    button.style.textAlign="center";
-    button.fontStyle="oblique";
+		var button = document.createElement('input');
+		button.type = "submit";
+		button.value = drinks[i].label + ", " + drinks[i].size + "cl, " + drinks[i].price + ":-";
+		button.name = drinks[i].label;
 
 
-	label.appendChild(button);
-	td.appendChild(label);
-	tr.appendChild(td);
-  }
+	    button.addEventListener("click", createAddToList( td ) );
+	    button.style.height="4em";
+	    button.style.width="20em";
+	    button.style.textAlign="center";
+	    button.fontStyle="oblique";
+
+
+		label.appendChild(button);
+		td.appendChild(label);
+		tr.appendChild(td);
+	  }
 }
 
 
@@ -50,12 +50,6 @@ function foodTable(){
 	  var tr = document.createElement('tr');
 	  document.getElementById('tableFood').appendChild(tr);
 	}
-      
-    var importedImage = foods[i].img;
-    var image = document.createElement("img");
-    image.setAttribute("src", importedImage);
-    image.style.height = '300px';
-    image.style.width = '300px';
 
 	var td = document.createElement('td');
 	td.id = foods[i].label;
@@ -69,14 +63,14 @@ function foodTable(){
 	button.value = foods[i].label + ", " + foods[i].price + ":-";
 	button.name = foods[i].label;
 	button.addEventListener("click", createAddToList( td ) );
-    button.style.height="4em";
+    button.style.height="10em";
     button.style.width="20em";
     button.style.textAlign="center";
     button.fontStyle="oblique";
 
-	label.appendChild(image);
-	var br = document.createElement("br");
-	td.appendChild(br);
+	//label.appendChild(image);
+	//var br = document.createElement("br");
+	//td.appendChild(br);
 	label.appendChild(button);
 	td.appendChild(label);
 
@@ -84,29 +78,29 @@ function foodTable(){
 	if(foods[i].details.length > 0){
 	  var details = document.createElement('table');
 
-	  for(var j = 0; j < foods[i].details.length; j++){
-		if( (j % 2) == 0){
-		  var trDetails = document.createElement('tr');
-		  details.appendChild(trDetails);
-		}
+	  	for(var j = 0; j < foods[i].details.length; j++){
+			if( (j % 2) == 0){
+			  var trDetails = document.createElement('tr');
+			  details.appendChild(trDetails);
+			}
 
-		var tdDetails = document.createElement('td');
-		var labelDetails = document.createElement('label');
-		labelDetails.htmlfor = foods[i].details[j].extra;
+			var tdDetails = document.createElement('td');
+			var labelDetails = document.createElement('label');
+			labelDetails.htmlfor = foods[i].details[j].extra;
 
-		var checkboxDetails = document.createElement('input');
-		checkboxDetails.type = "checkbox";
-		checkboxDetails.value = foods[i].details[j].price;
-		checkboxDetails.id = foods[i].details[j].extra;
-		checkboxDetails.name = (foods[i].label + "extra");
+			var checkboxDetails = document.createElement('input');
+			checkboxDetails.type = "checkbox";
+			checkboxDetails.value = foods[i].details[j].price;
+			checkboxDetails.id = foods[i].details[j].extra;
+			checkboxDetails.name = (foods[i].label + "extra");
 
 
-		labelDetails.appendChild(checkboxDetails);
-		labelDetails.appendChild( document.createTextNode( foods[i].details[j].extra + ", " + foods[i].details[j].price + ":-" ) );
+			labelDetails.appendChild(checkboxDetails);
+			labelDetails.appendChild( document.createTextNode( foods[i].details[j].extra + ", " + foods[i].details[j].price + ":-" ) );
 
-		tdDetails.appendChild(labelDetails);
-		trDetails.appendChild(tdDetails);
-      }
+			tdDetails.appendChild(labelDetails);
+			trDetails.appendChild(tdDetails);
+        }
     }
 
     td.appendChild(details);
@@ -150,29 +144,28 @@ function sideorderTable(){
 	if(sideorders[i].details.length > 0){
 	  var extraList = document.createElement('table');
 
-	  for(var j = 0; j < sideorders[i].details.length; j++){
-		if( (j % 2) == 0){
-		  var trDetails = document.createElement('tr');
-		  extraList.appendChild(trDetails);
-		}
+	  	for(var j = 0; j < sideorders[i].details.length; j++){
+			if( (j % 2) == 0){
+			  	var trDetails = document.createElement('tr');
+			  	extraList.appendChild(trDetails);
+			}
 
-		var tdDetails = document.createElement('td');
-		var labelDetails = document.createElement('label');
-		labelDetails.htmlfor = sideorders[i].details[j].extra;
+			var tdDetails = document.createElement('td');
+			var labelDetails = document.createElement('label');
+			labelDetails.htmlfor = sideorders[i].details[j].extra;
 
-		var checkboxDetails = document.createElement('input');
-		checkboxDetails.type = "checkbox";
-		checkboxDetails.value = sideorders[i].details[j].extra;
-		checkboxDetails.name = (sideorders[i].label + "extra");
+			var checkboxDetails = document.createElement('input');
+			checkboxDetails.type = "checkbox";
+			checkboxDetails.value = sideorders[i].details[j].extra;
+			checkboxDetails.name = (sideorders[i].label + "extra");
 
 
-		labelDetails.appendChild(checkboxDetails);
-		labelDetails.appendChild( document.createTextNode( sideorders[i].details[j].extra + ", " + sideorders[i].details[j].price + ":-" ) );
+			labelDetails.appendChild(checkboxDetails);
+			labelDetails.appendChild( document.createTextNode( sideorders[i].details[j].extra + ", " + sideorders[i].details[j].price + ":-" ) );
 
-		tdDetails.appendChild(labelDetails);
-		trDetails.appendChild(tdDetails);
-
-	  }
+			tdDetails.appendChild(labelDetails);
+			trDetails.appendChild(tdDetails);
+	  	}
 	}
 
 	td.appendChild(extraList);
@@ -182,21 +175,23 @@ function sideorderTable(){
 
 
 function createAddToList(name){
-  return function(){
-	addToList(name);
-  }
+  	return function(){
+		addToList(name);
+  	}
 }
 
+
 function checkedCheckboxes(checkboxes){
-  var checked = [];
-  for (var i = 0; i < checkboxes.length; i++) {
-	 if (checkboxes[i].checked) {
-		checked.push(checkboxes[i]);
-	 }
-  }
+  	var checked = [];
+  	for (var i = 0; i < checkboxes.length; i++) {
+	 	if (checkboxes[i].checked) {
+			checked.push(checkboxes[i]);
+	 	}
+  	}
 
   return checked;
 }
+
 
 function createExtraList(name){
 	var allCheckboxes = document.getElementsByName(name);
@@ -242,6 +237,7 @@ function totalPrice(itemPrice){
 	totalPrice.innerHTML = newTotal;
 }
 
+
 function identical(tableDetails, orderDetails){
 	if(tableDetails == undefined){
 		return false;
@@ -249,9 +245,7 @@ function identical(tableDetails, orderDetails){
 	if(tableDetails.length != orderDetails.length){
 		return false;
 	}
-
 	for(var i = 0; i < tableDetails.length; i++){
-		console.log("IDENTICAL - " + tableDetails[i].id + "EQUALS" + orderDetails[i].id);
 		if(tableDetails[i].id != orderDetails[i].id){
 			return false;
 		}
@@ -259,9 +253,8 @@ function identical(tableDetails, orderDetails){
 	return true;
 }
 
-function addToList(name){
-	var drink = false;
 
+function addToList(name){
 
   var table = document.getElementById("orderTable");
 
@@ -272,25 +265,26 @@ function addToList(name){
   col1.appendChild( document.createTextNode(name.id) );
 
   var col2 = document.createElement('td');
-  //var checkboxes = checkedCheckboxes(name.id + "extra");
   var detailList = createExtraList(name.id + "extra");
-  var waddup = document.createElement('ul');
-
   col2.value = detailList;
+
+  var col3 = document.createElement('td');
+  var orderPrice = name.value;
 
   if(detailList == null){	// IF ORDER DOES NOT CONTAIN DETAILS/EXTRAS
   	col1.colSpan = 2;		// THE COLUMN CONTAINING NAME SHOULD SPAN 2 COLUMNS
 
-  	var drink = true;
   }							// AND NO DETAIL COLUMN SHOULD BE ADDED
   else{
   	col2.appendChild(detailList)
+
+  	var extraPrices = detailList.getElementsByTagName('li');	// IF THE ORDER CONTAINS EXTRA DETAILS
+  	for(var i = 0; i < extraPrices.length; i++){				// GATHER THEM IN ARRAY AND ADD THEIR PRICES
+  		orderPrice += extraPrices[i].value;						// TO THE PRICE OF THE ITEM ITSELF
+  	}
   }
 
-  console.log("Colspan is == " + col1.colSpan);
 
-  var col3 = document.createElement('td');
-  col3.appendChild( document.createTextNode( name.value ) );
 
   // CHECKS IF ITEM TO BE ADDED ALREADY EXIST IN CURRENT ORDERS
   //
@@ -309,10 +303,9 @@ function addToList(name){
 		}
 
 		
-	  if( (name.id == row.cells.item(1).innerHTML) && ( (identicalDetails && !containExtras) || (thirdColumn == null && containExtras) ) ){
+	  if( (name.id == itemInTable) && ( (identicalDetails && !containExtras) || (thirdColumn == null && containExtras) ) ){
 
 		row.cells.item(0).innerHTML++; 							// INCREMENT NUMBER OF ITEMS BY 1
-
 
 		if(containExtras){
 		var price = Number(row.cells.item(2).innerHTML);		// ADDS THE PRICE OF ITEM TO BE ADDED 
@@ -321,29 +314,28 @@ function addToList(name){
 		}
 		else{
 		var price = Number(row.cells.item(3).innerHTML);		// ADDS THE PRICE OF ITEM TO BE ADDED 
-		price += Number(name.value);							// WITH THE CURRENT PRICE
+		price += orderPrice;									// WITH THE CURRENT PRICE
 		row.cells.item(3).innerHTML = price;					//
 		}
 
-		totalPrice(name.value);									// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+		totalPrice(orderPrice);									// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
 
 		return 0;												// EXITS FUNCTION
 	  }
 	}
 
-  totalPrice(name.value)					// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+ 	var tr = document.createElement('tr');
+  	tr.appendChild(col0);						// col0 == NUMBER OF ITEM
+  	tr.appendChild(col1);						// col1 == NAME OF ITEM
+  	if(detailList != null){					
+  		tr.appendChild(col2);					// IF THE ORDER CONTAINS A LIST OF DETAILS, APPEND IT
+  	}
 
-  var tr = document.createElement('tr');
-  tr.appendChild(col0);						// col0 == NUMBER OF ITEM
-  tr.appendChild(col1);						// col1 == NAME OF ITEM
-  if(detailList != null){					
-  	tr.appendChild(col2);					// IF THE ORDER DO CONTAIN A LIST OF DETAILS, APPEND IT
-  }
-  tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
+  	col3.appendChild( document.createTextNode( orderPrice ) );
+  	tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
 
-  var element = document.getElementById('orderTable');
-  element.appendChild(tr);
-
+  	totalPrice(orderPrice);					// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+  	document.getElementById('orderTable').appendChild(tr);
 }
 
 
