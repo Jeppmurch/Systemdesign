@@ -134,8 +134,8 @@ function sideorderTable(){
 
     var button = document.createElement('input');
     button.type = "submit";
-    button.value = button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
-    button.name = "item[]";
+    button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
+    button.name = sideorders[i].label;
     button.addEventListener("click", createAddToList( td ) );
     button.style.height="4em";
     button.style.width="20em";
@@ -146,7 +146,6 @@ function sideorderTable(){
 	label.appendChild(button);
 	td.appendChild(label);
 
-
 	if(sideorders[i].details.length > 0){
 	  var extraList = document.createElement('table');
 
@@ -155,14 +154,14 @@ function sideorderTable(){
 			  	var trDetails = document.createElement('tr');
 			  	extraList.appendChild(trDetails);
 			}
-
 			var tdDetails = document.createElement('td');
 			var labelDetails = document.createElement('label');
 			labelDetails.htmlfor = sideorders[i].details[j].extra;
 
 			var checkboxDetails = document.createElement('input');
 			checkboxDetails.type = "checkbox";
-			checkboxDetails.value = sideorders[i].details[j].extra;
+			checkboxDetails.value = sideorders[i].details[j].price;
+			checkboxDetails.id = sideorders[i].details[j].extra;
 			checkboxDetails.name = (sideorders[i].label + "extra");
 
 
