@@ -8,21 +8,62 @@ head{
  
 }
 
+body{
+	background-image: url("https://s-media-cache-ak0.pinimg.com/564x/4d/76/78/4d76780ab476229a2a26018f82bac283.jpg");
+	width: 100%;
+
+	
+    /*height: auto; http://pre09.deviantart.net/1080/th/pre/i/2013/002/5/2/pattern__junk_food_by_cup_kayke-d5q7931.jpg
+	/*background-repeat: repeat; https://s-media-cache-ak0.pinimg.com/564x/b4/50/49/b450497d0c7937a6efce455b151fe05e.jpg*/
+    /*<!--no-repeat-->https://s-media-cache-ak0.pinimg.com/564x/a9/7a/61/a97a61d1722cf9490a9afdb2b6b9b207.jpg*/
+}
 
 h1{
  
  color: black; 
  padding: 50px 45px 20px;
- 
- 
-    
+ }
+
+section{
+    margin: auto 100px;
+    text-align: center;
 }
+
+
 
 #kitchenLeft{
 
     float: left;
 }
 
+#batch{
+	background-color: white;
+    border: 10px inset black;
+}
+
+#orders{
+	background-color: white;
+    border: 10px groove black;
+
+}
+
 #kitchenRight{
      float: right;  
+}
+
+
+#GoBack{
+   position:absolute;
+   right:0;
+   bottom:0;
+   /*border:1px solid #f00;*/
+   font-size: 30;
+   font-style: bold;
+    
+}
+
+#Kbutton{
+    font-size: 200%;
+    width: 30em;
+    height:15em;
 }
