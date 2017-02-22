@@ -9,9 +9,9 @@ function docLoaded(fn){
 
 
 function drinkTable() {
-	for (var i = 0; i < drinks.length; i++){
+	for (var i = 0; i < drinks.length-1; i++){
 
-		if((i % 2) == 0){
+		if((i % 3) == 0){
 		  var tr = document.createElement('tr');
 		  document.getElementById('tableDrink').appendChild(tr);
 		}
@@ -50,12 +50,6 @@ function foodTable(){
 	  var tr = document.createElement('tr');
 	  document.getElementById('tableFood').appendChild(tr);
 	}
-      
-    var importedImage = foods[i].img;
-    var image = document.createElement("img");
-    image.setAttribute("src", importedImage);
-    image.style.height = '300px';
-    image.style.width = '300px';
 
 	var td = document.createElement('td');
 	td.id = foods[i].label;
@@ -69,14 +63,14 @@ function foodTable(){
 	button.value = foods[i].label + ", " + foods[i].price + ":-";
 	button.name = foods[i].label;
 	button.addEventListener("click", createAddToList( td ) );
-    button.style.height="4em";
+    button.style.height="10em";
     button.style.width="20em";
     button.style.textAlign="center";
     button.fontStyle="oblique";
 
-	label.appendChild(image);
-	var br = document.createElement("br");
-	td.appendChild(br);
+	//label.appendChild(image);
+	//var br = document.createElement("br");
+	//td.appendChild(br);
 	label.appendChild(button);
 	td.appendChild(label);
 
