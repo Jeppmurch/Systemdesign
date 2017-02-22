@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nationsköket</title>
   <link rel="stylesheet" href="css/kitchen.css">
-
   <script src="data/menu.js"></script>
   <script src="js/kit_view.js"></script>
   <script>
@@ -39,11 +38,18 @@
   
   <div id="order">
     <h3 id="batch">Batches </h3>
+  </div>
   
   </section>
 
+  <div id="GoBack">
+  <button onclick="goBack()" id="Kbutton">Tillbaka till Matsalen</button>
   </div>
-
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 
 
 

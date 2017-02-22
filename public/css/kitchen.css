@@ -26,3 +26,20 @@ h1{
 #kitchenRight{
      float: right;  
 }
+
+
+#GoBack{
+   position:absolute;
+   right:0;
+   bottom:0;
+   /*border:1px solid #f00;*/
+   font-size: 30;
+   font-style: bold;
+    
+}
+
+#Kbutton{
+    font-size: 200%;
+    width: 30em;
+    height:15em;
+}
