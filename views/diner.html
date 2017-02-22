@@ -104,20 +104,46 @@
     <div id="order">
     <h1>Nuvarande beställning</h1>
     
-    <section id="currentOrders">
-      <table id="orderTable">
-        <thead>
-          <tr>
-            <td>Antal</td><td>Vara</td><td>Extra</td><td>Pris</td>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <td></td><td colspan="2">Total:</td><td id="totalPrice">0</td>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
+
+
+      <table>
+        <thead><tr><td>Mat:</td><td>Dryck:</td></tr></thead>
+        <tr>
+          <td>
+            <section id="currentOrders">
+              <table id="orderTable">
+                <thead>
+                  <tr>
+                    <td>Antal</td><td>Vara</td><td>Extra</td><td>Pris</td>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td></td><td colspan="2">Total:</td><td id="totalPrice">0</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </section>
+          </td>
+          <td>
+            <section id="drinkOrders">
+              <table id="orderDrink">
+                <thead>
+                  <tr>
+                    <td>Antal</td><td colspan="2">Vara</td><td>Pris</td>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td></td><td colspan="2">Total:</td><td id="totalDrink">0</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </section>
+          </td>
+        </tr>
+        <tfoot><tr><td>Total:</td><td id="totaltotal">0</td></tr></tfoot>      
+    </table>
 
     <button v-on:click="placeOrder()" id="button">{{ uiLabels.placeOrder }}</button>
     </div>

@@ -29,7 +29,7 @@ function drinkTable() {
 		button.name = drinks[i].label;
 
 
-	    button.addEventListener("click", createAddToList( td ) );
+	    button.addEventListener("click", createaddToDrink( td ) );
 	    button.style.height="4em";
 	    button.style.width="20em";
 	    button.style.textAlign="center";
@@ -180,6 +180,13 @@ function createAddToList(name){
 }
 
 
+function createaddToDrink(name){
+	return function(){
+		addToDrink(name);
+	}
+}
+
+
 function checkedCheckboxes(checkboxes){
   	var checked = [];
   	for (var i = 0; i < checkboxes.length; i++) {
@@ -228,14 +235,21 @@ function identicalDetails(currentDetails, orderDetails){
 }
 
 
-function totalPrice(itemPrice){
-	var totalPrice = document.getElementById('totalPrice');
+function totalPrice(itemPrice, name){
+	var totalPrice = document.getElementById(name);
+	var totalTotal = document.getElementById('totaltotal');
+
+	console.log(totalTotal.innerHTML);
+	var totalius = Number(totalTotal.innerHTML);
 	var newTotal = Number(totalPrice.innerHTML);
 
+	totalius += Number(itemPrice);
 	newTotal += Number(itemPrice);
-	totalPrice.innerHTML = newTotal;
-}
 
+	totaltotal.innerHTML = totalius;
+	totalPrice.innerHTML = newTotal;
+
+}
 
 function identical(tableDetails, orderDetails){
 	if(tableDetails == undefined){
@@ -317,7 +331,7 @@ function addToList(name){
 		row.cells.item(3).innerHTML = price;					//
 		}
 
-		totalPrice(orderPrice);									// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+		totalPrice(orderPrice, 'totalPrice');					// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
 
 		return 0;												// EXITS FUNCTION
 	  }
@@ -333,8 +347,93 @@ function addToList(name){
   	col3.appendChild( document.createTextNode( orderPrice ) );
   	tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
 
-  	totalPrice(orderPrice);					// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+  	totalPrice(orderPrice, 'totalPrice');		// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
   	document.getElementById('orderTable').appendChild(tr);
+}
+
+
+function addToDrink(name){
+
+  var table = document.getElementById("orderDrink");
+
+  var col0 = document.createElement('td');
+  col0.appendChild( document.createTextNode(1) );
+
+  var col1 = document.createElement('td');
+  col1.appendChild( document.createTextNode(name.id) );
+
+  var col2 = document.createElement('td');
+  var detailList = createExtraList(name.id + "extra");
+  col2.value = detailList;
+
+  var col3 = document.createElement('td');
+  var orderPrice = name.value;
+
+  if(detailList == null){	// IF ORDER DOES NOT CONTAIN DETAILS/EXTRAS
+  	col1.colSpan = 2;		// THE COLUMN CONTAINING NAME SHOULD SPAN 2 COLUMNS
+
+  }							// AND NO DETAIL COLUMN SHOULD BE ADDED
+  else{
+  	col2.appendChild(detailList)
+
+  	var extraPrices = detailList.getElementsByTagName('li');	// IF THE ORDER CONTAINS EXTRA DETAILS
+  	for(var i = 0; i < extraPrices.length; i++){				// GATHER THEM IN ARRAY AND ADD THEIR PRICES
+  		orderPrice += extraPrices[i].value;						// TO THE PRICE OF THE ITEM ITSELF
+  	}
+  }
+
+
+
+  // CHECKS IF ITEM TO BE ADDED ALREADY EXIST IN CURRENT ORDERS
+  //
+  for (var i = 0, row; row = table.rows[i]; i++) {
+  	var itemInTable = row.cells.item(1).innerHTML;				// itemInTable == THE NAME OF THE ITEM IN THE TABLE ROW
+
+	  	var containExtras = (col1.colSpan == 2); // IF ORDER DOES NOT CONTAIN DETAILS, COLUMN 1 IS SET TO 2
+
+	  	var thirdColumn = row.cells.item(2).value;
+	  	if(thirdColumn != null && !containExtras){
+	  		var thirdColumnDetails = thirdColumn.getElementsByTagName('li');
+	  		var identicalDetails = identical(thirdColumnDetails, detailList.getElementsByTagName('li'));
+		}
+		else{
+			var identicalDetails = false;
+		}
+
+		
+	  if( (name.id == itemInTable) ){
+
+		row.cells.item(0).innerHTML++; 							// INCREMENT NUMBER OF ITEMS BY 1
+
+		if(containExtras){
+		var price = Number(row.cells.item(2).innerHTML);		// ADDS THE PRICE OF ITEM TO BE ADDED 
+		price += Number(name.value);							// WITH THE CURRENT PRICE
+		row.cells.item(2).innerHTML = price;					//
+		}
+		else{
+		var price = Number(row.cells.item(3).innerHTML);		// ADDS THE PRICE OF ITEM TO BE ADDED 
+		price += orderPrice;									// WITH THE CURRENT PRICE
+		row.cells.item(3).innerHTML = price;					//
+		}
+
+		totalPrice(orderPrice, 'totalDrink');					// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+
+		return 0;												// EXITS FUNCTION
+	  }
+	}
+
+ 	var tr = document.createElement('tr');
+  	tr.appendChild(col0);						// col0 == NUMBER OF ITEM
+  	tr.appendChild(col1);						// col1 == NAME OF ITEM
+  	if(detailList != null){					
+  		tr.appendChild(col2);					// IF THE ORDER CONTAINS A LIST OF DETAILS, APPEND IT
+  	}
+
+  	col3.appendChild( document.createTextNode( orderPrice ) );
+  	tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
+
+  	totalPrice(orderPrice, 'totalDrink');		// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
+  	document.getElementById('orderDrink').appendChild(tr);
 }
 
 
