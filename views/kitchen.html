@@ -12,29 +12,31 @@
   </script>
 </head>
 <body>
-  <section id="kitchenLeft">
-  <div id="orders">
+  <section id="orders">
+  <div id="oderOnWay">
     <h1>{{ uiLabels.ordersInQueue }}</h1>
     <ol>
       <li v-for="(item, key) in orders" v-if="!item.done"> 
-        {{ key }} : {{ item.orderItems.join(', ') }} 
         <button v-on:click="markDone(key)">
-          {{uiLabels.ready}}
+        {{ key }} : {{ item.orderItems.join(', ') }} 
+        
+          <!--{{uiLabels.ready}}-->
         </button>
       </li>
     </ol>
+      <div id="divorderDone">
         <h1>{{ uiLabels.ordersFinished }}</h1>
     <ol>
       <li v-for="(item, key) in orders" v-if="item.done"> 
         {{ key }} : {{ item.orderItems.join(', ') }}
       </li>
     </ol>
-
+    </div>
   </div>
   
   </section>
   <section id="kitchenRight">
-  <img src="pub_map_v1.jpg" height="200" width="200">
+  <img id="picpic" src="pub_map_v1.jpg" height="200" width="200">
   
   <div id="order">
     <h3 id="batch">Batches </h3>
