@@ -94,6 +94,19 @@ new Vue({
 								orderItems = orderItems.concat(ot.rows[1].cells[0].innerHTML
 																							 + ' st '
 																							 + ot.rows[1].cells[1].innerHTML);
+
+								// add extra information
+								var list = ot.rows[1].cells[2].getElementsByTagName('li')
+								var str = '';
+								if( list.length > 0 ) {
+										
+										str += 'Extra: ';
+										for(var j = 0; j < list.length; j++) {
+												str +=  ' ' + list[j].id;
+										}
+										
+								}
+								orderItems = orderItems.concat(str + ' ||| ');
 								ot.rows[1].remove();
 						}
 
