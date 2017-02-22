@@ -28,10 +28,12 @@ function drinkTable() {
 	button.value = drinks[i].label + ", " + drinks[i].size + "cl, " + drinks[i].price + ":-";
 	button.name = drinks[i].label;
 
-	button.addEventListener("click", createAddToList( td ) );
-	button.style.height="4em";
-	button.style.width="20em";
-	button.style.textAlign="center";
+
+    button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
+    button.fontStyle="oblique";
 
 
 	label.appendChild(button);
@@ -48,12 +50,12 @@ function foodTable(){
 	  var tr = document.createElement('tr');
 	  document.getElementById('tableFood').appendChild(tr);
 	}
-	  
-	var importedImage = foods[i].img;
-	var image = document.createElement("img");
-	image.setAttribute("src", importedImage);
-	image.style.height = '15em';
-	image.style.width = '15em';
+      
+    var importedImage = foods[i].img;
+    var image = document.createElement("img");
+    image.setAttribute("src", importedImage);
+    image.style.height = '300px';
+    image.style.width = '300px';
 
 	var td = document.createElement('td');
 	td.id = foods[i].label;
@@ -67,6 +69,10 @@ function foodTable(){
 	button.value = foods[i].label + ", " + foods[i].price + ":-";
 	button.name = foods[i].label;
 	button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
+    button.fontStyle="oblique";
 
 	label.appendChild(image);
 	var br = document.createElement("br");
@@ -100,11 +106,11 @@ function foodTable(){
 
 		tdDetails.appendChild(labelDetails);
 		trDetails.appendChild(tdDetails);
-	  }
-	}
+      }
+    }
 
-	td.appendChild(details);
-	tr.appendChild(td);
+    td.appendChild(details);
+    tr.appendChild(td);
   }
 }
 
@@ -125,11 +131,16 @@ function sideorderTable(){
 	var label = document.createElement('label');
 	label.htmlfor = sideorders[i].label;
 
-	var button = document.createElement('input');
-	button.type = "submit";
-	button.value = button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
-	button.name = "item[]";
-	button.addEventListener("click", createAddToList( td ) );
+
+    var button = document.createElement('input');
+    button.type = "submit";
+    button.value = button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
+    button.name = "item[]";
+    button.addEventListener("click", createAddToList( td ) );
+    button.style.height="4em";
+    button.style.width="20em";
+    button.style.textAlign="center";
+    button.fontStyle="oblique";
 
 
 	label.appendChild(button);
