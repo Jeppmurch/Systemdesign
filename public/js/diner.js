@@ -84,19 +84,18 @@ new Vue({
             }
 
 						var orderItems = mainCourse.concat(extras).concat(theRest);
+
+						// get the table
 						var ot = document.getElementById('orderTable');
 						var nrRows = ot.rows.length;
 
 						for(var i = 1; i < nrRows - 1; i++) {
+								// append relevant info from table rows.
 								orderItems = orderItems.concat(ot.rows[1].cells[0].innerHTML
 																							 + ' st '
 																							 + ot.rows[1].cells[1].innerHTML);
 								ot.rows[1].remove();
 						}
-
-						// for(var i = 1; i < nrRows - 1; i++) {
-						// 		ot.rows[1].remove(); // Remove first row nrRow times
-						// }
 
 						// reset price
 						ot.rows[1].cells[2].innerHTML = 0;

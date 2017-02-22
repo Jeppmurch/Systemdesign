@@ -8,6 +8,7 @@
   <script src="data/menu.js"></script>
   <script src="js/drinks.js"></script>
   <!--  <script type="text/javascript" src="data/menu.json"></script> DOESN'T WORK  -->
+
   <script>
     window.onload = docLoaded(indexPageLoaded);
   </script>
@@ -83,7 +84,7 @@
         {{ option.text }}
       </option>
     </select>
-    <button onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+    <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
     <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
     <div id="layout"></div>
     <br/><br/>
@@ -139,6 +140,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/nationPub.js"></script>
   <script src="js/diner.js"></script>
+	<script type="text/javascript">
+
 </body>
 </main>
 </html>
