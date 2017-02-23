@@ -110,9 +110,17 @@ new Vue({
 								ot.rows[1].remove();
 						}
 
-						// reset price
-						ot.rows[1].cells[2].innerHTML = 0;
+						var dt = document.getElementById('orderDrink');
+						nrRows = dt.rows.length;
 
+						for(var i = 1; i < nrRows -1; i++) {
+								dt.rows[1].remove();
+						}
+
+						// reset all 'Total:' fields in table
+						document.getElementById('totalPrice').innerHTML = 0;
+						document.getElementById('totalDrink').innerHTML = 0;
+						document.getElementById('totaltotal').innerHTML = 0;
 						
             // OK, it's not really neat to use two different ways of accomplishing the same thing
             // but let's pretend it's for an educational purpose ... here comes another no-no:
@@ -121,7 +129,8 @@ new Vue({
                 orderItems = orderItems.concat('Table: '+tablenr);
             
             // Finally we make use of socket.io's magic to send the stuff to the kitchen
-            socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
+						if(document.getElementById('orderTable').rows.length > 2)
+								socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
 						
         }
     }
