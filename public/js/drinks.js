@@ -239,7 +239,6 @@ function totalPrice(itemPrice, name){
 	var totalPrice = document.getElementById(name);
 	var totalTotal = document.getElementById('totaltotal');
 
-	console.log(totalTotal.innerHTML);
 	var totalius = Number(totalTotal.innerHTML);
 	var newTotal = Number(totalPrice.innerHTML);
 
@@ -267,9 +266,60 @@ function identical(tableDetails, orderDetails){
 }
 
 
+function createDecrement(rowName, tableTotal, itemPrice){
+	return function(){
+		decrement(rowName, tableTotal, itemPrice);
+	}
+}
+
+function decrement(row, tableTotal, itemPrice){
+	if(row.cells[1].colSpan == 2){
+		var newPrice = Number(row.cells[2].innerHTML) - itemPrice;
+		row.cells[2].innerHTML = newPrice;
+	}
+	else{
+		var newPrice = Number(row.cells[3].innerHTML) - itemPrice;
+		row.cells[3].innerHTML = newPrice;
+	}
+
+	row.cells[0].innerHTML--;
+
+	totalPrice(-itemPrice, tableTotal);
+
+
+	if(row.cells[0].innerHTML == 0){
+		row.remove();
+	}
+}
+
+
+function createIncrement(rowName, tableTotal, itemPrice){
+	return function(){
+		increment(rowName, tableTotal, itemPrice);
+	}
+}
+
+function increment(row, tableTotal, itemPrice){
+	if(row.cells[1].colSpan == 2){
+		var newPrice = Number(row.cells[2].innerHTML) + itemPrice;
+		row.cells[2].innerHTML = newPrice;
+	}
+	else{
+		var newPrice = Number(row.cells[3].innerHTML) + itemPrice;
+		row.cells[3].innerHTML = newPrice;
+	}
+
+	row.cells[0].innerHTML++;
+
+	totalPrice(itemPrice, tableTotal);
+
+}
+
+
 function addToList(name){
 
   var table = document.getElementById("orderTable");
+  var tr = document.createElement('tr');
 
   var col0 = document.createElement('td');
   col0.appendChild( document.createTextNode(1) );
@@ -284,6 +334,7 @@ function addToList(name){
   var col3 = document.createElement('td');
   var orderPrice = name.value;
 
+
   if(detailList == null){	// IF ORDER DOES NOT CONTAIN DETAILS/EXTRAS
   	col1.colSpan = 2;		// THE COLUMN CONTAINING NAME SHOULD SPAN 2 COLUMNS
 
@@ -297,6 +348,16 @@ function addToList(name){
   	}
   }
 
+
+  var col4 = document.createElement('input');
+  col4.type = 'submit';
+  col4.value = '-';
+  col4.addEventListener("click", createDecrement(tr, 'totalPrice', orderPrice) );
+
+  var col5 = document.createElement('input');
+  col5.type = 'submit';
+  col5.value = '+';
+  col5.addEventListener("click", createIncrement(tr, 'totalPrice', orderPrice) );
 
 
   // CHECKS IF ITEM TO BE ADDED ALREADY EXIST IN CURRENT ORDERS
@@ -337,7 +398,7 @@ function addToList(name){
 	  }
 	}
 
- 	var tr = document.createElement('tr');
+
   	tr.appendChild(col0);						// col0 == NUMBER OF ITEM
   	tr.appendChild(col1);						// col1 == NAME OF ITEM
   	if(detailList != null){					
@@ -347,14 +408,21 @@ function addToList(name){
   	col3.appendChild( document.createTextNode( orderPrice ) );
   	tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
 
+  	tr.appendChild(col4);
+  	tr.appendChild(col5);
+
   	totalPrice(orderPrice, 'totalPrice');		// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
   	document.getElementById('orderTable').appendChild(tr);
 }
 
 
+
 function addToDrink(name){
 
   var table = document.getElementById("orderDrink");
+
+  var tr = document.createElement('tr');
+  tr.id = name.id + "dec";
 
   var col0 = document.createElement('td');
   col0.appendChild( document.createTextNode(1) );
@@ -368,6 +436,17 @@ function addToDrink(name){
 
   var col3 = document.createElement('td');
   var orderPrice = name.value;
+
+  var col4 = document.createElement('input');
+  col4.type = 'submit';
+  col4.value = '-';
+  col4.addEventListener("click", createDecrement(tr, 'totalDrink', orderPrice) );
+
+  var col5 = document.createElement('input');
+  col5.type = 'submit';
+  col5.value = '+';
+  col5.addEventListener("click", createIncrement(tr, 'totalDrink', orderPrice) );
+
 
   if(detailList == null){	// IF ORDER DOES NOT CONTAIN DETAILS/EXTRAS
   	col1.colSpan = 2;		// THE COLUMN CONTAINING NAME SHOULD SPAN 2 COLUMNS
@@ -422,7 +501,7 @@ function addToDrink(name){
 	  }
 	}
 
- 	var tr = document.createElement('tr');
+
   	tr.appendChild(col0);						// col0 == NUMBER OF ITEM
   	tr.appendChild(col1);						// col1 == NAME OF ITEM
   	if(detailList != null){					
@@ -431,6 +510,9 @@ function addToDrink(name){
 
   	col3.appendChild( document.createTextNode( orderPrice ) );
   	tr.appendChild(col3);						// col3 == PRICE OF ITEM/ITEMS
+
+  	tr.appendChild(col4);
+  	tr.appendChild(col5);
 
   	totalPrice(orderPrice, 'totalDrink');		// ADDS PRICE OF ITEM TO BE ADDED TO TOTAL
   	document.getElementById('orderDrink').appendChild(tr);
