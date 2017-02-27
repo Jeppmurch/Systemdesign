@@ -58,3 +58,46 @@ h1{
     width:50%;
     
 }
+
+#tableFood{
+   background-color: gold;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+      
+}
+
+#tableDrink{
+   background-color: gold;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+   float: right;
+      
+}
+
+#sideorderTable{
+   background-color: gold;
+   color: black;
+   float: left;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+      
+}
+
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}

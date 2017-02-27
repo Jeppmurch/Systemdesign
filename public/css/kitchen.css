@@ -5,12 +5,11 @@ head{
  padding: 8px; 
  height: 200px;
  overflow:hidden;
- 
 }
 
 body{
-	background-image: url("https://s-media-cache-ak0.pinimg.com/564x/4d/76/78/4d76780ab476229a2a26018f82bac283.jpg");
-	width: 100%;
+	background-image: url("https://s-media-cache-ak0.pinimg.com/564x/a9/7a/61/a97a61d1722cf9490a9afdb2b6b9b207.jpg");
+	/*https://s-media-cache-ak0.pinimg.com/564x/4d/76/78/4d76780ab476229a2a26018f82bac283.jpg*/
 }
 
 h1{
@@ -23,11 +22,24 @@ section{
     text-align: center;
 }
 
-#orderOnWay{
 
+tr:nth-child(even) {background-color: #f2f2f2};
+
+ol {
+    background: #ff9999;
+    padding: 20px;
+}
+
+ul {
+    background: #3399ff;
+    padding: 20px;
+}
+
+#orderOnWay{
 }
 
 #orderDone{
+
 }
 
 #batch{
@@ -52,7 +64,7 @@ section{
 
 
 #GoBack{
-   position:absolute;
+   float: bottom;
    right:0;
    bottom:0;
    /*border:1px solid #f00;*/
@@ -62,7 +74,7 @@ section{
 }
 
 #Kbutton{
-    font-size: 200%;
+    font-size: 40%;
     width: 30em;
     height:15em;
 }
