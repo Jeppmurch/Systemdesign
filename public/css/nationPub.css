@@ -12,6 +12,7 @@ head{
 body{
     /*background-image: url("https://s-media-cache-ak0.pinimg.com/564x/a9/7a/61/a97a61d1722cf9490a9afdb2b6b9b207.jpg");
     /*https://s-media-cache-ak0.pinimg.com/564x/4d/76/78/4d76780ab476229a2a26018f82bac283.jpg*/
+
 }
 
 h1{
@@ -58,4 +59,47 @@ h1{
     float:left;
     width:50%;
     
+}
+
+#tableFood{
+   background-color: gold;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+      
+}
+
+#tableDrink{
+   background-color: gold;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+   float: right;
+      
+}
+
+#sideorderTable{
+   background-color: gold;
+   color: black;
+   float: left;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+      
+}
+
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
 }

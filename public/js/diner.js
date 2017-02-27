@@ -117,6 +117,8 @@ new Vue({
 								dt.rows[1].remove();
 						}
 
+						var foodOrdered = document.getElementById('totalPrice').innerHTML;
+						
 						// reset all 'Total:' fields in table
 						document.getElementById('totalPrice').innerHTML = 0;
 						document.getElementById('totalDrink').innerHTML = 0;
@@ -129,8 +131,9 @@ new Vue({
                 orderItems = orderItems.concat('Table: '+tablenr);
             
             // Finally we make use of socket.io's magic to send the stuff to the kitchen
-						if(document.getElementById('orderTable').rows.length > 2)
+						if(foodOrdered > 0) {
 								socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
+						}
 						
         }
     }
