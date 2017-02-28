@@ -63,8 +63,8 @@ function foodTable(){
 	button.value = foods[i].label + ", " + foods[i].price + ":-";
 	button.name = foods[i].label;
 	button.addEventListener("click", createAddToList( td ) );
-    button.style.height="10em";
-    button.style.width="20em";
+    button.style.height="100px";
+    button.style.width="150px";
     button.style.textAlign="center";
     button.fontStyle="oblique";
 
@@ -131,8 +131,8 @@ function sideorderTable(){
     button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
     button.name = sideorders[i].label;
     button.addEventListener("click", createAddToList( td ) );
-    button.style.height="4em";
-    button.style.width="20em";
+    button.style.height="150px";
+    button.style.width="200px";
     button.style.textAlign="center";
     button.fontStyle="oblique";
 

@@ -21,9 +21,15 @@
     <section id="tableFood">
       <table>
           
-        </table>
+      </table>
     </section>
     </div>
+
+     <section id="sideorderTable">
+      <table>
+
+      </table>
+    </section>
       
     <div id="drinkar">
 
@@ -53,11 +59,7 @@
         </label>      
       </div>
     </div> -->
-    <section id="sideorderTable">
-      <table>
-
-      </table>
-    </section>
+   
 
     <!--<label v-for="menuitem in menu.sideorders">
       <input type="checkbox" name="item[]" :value="menuitem.label" />
@@ -74,6 +76,7 @@
 
 
     <!-- JOEL: Added tables -->
+    <div id=showTable>
     <h1>{{ uiLabels.table }}</h1>
     <select v-model="selected" id="tableId">
       <option v-for="option in options" v-bind:value="option.value">
@@ -84,8 +87,8 @@
     <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
     <div id="layout"></div>
     <br/><br/>
-
-    
+    </div>
+    <!--
     <div id="kinfo">
     <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
     <h2>{{ uiLabels.ordersInProgress }}</h2>
@@ -97,7 +100,7 @@
       <li v-for="(item, key) in orders" v-if="item.done"> {{ key }} : {{ item.orderItems.join(', ') }}</li>
     </ol>
     </div>
-      
+      -->
     <div id="order">
     <h1>Nuvarande beställning</h1>
     
@@ -143,9 +146,9 @@
     </table>
 
     <button v-on:click="placeOrder()" id="button">{{ uiLabels.placeOrder }}</button>
-    </div>
-      
-  </div>
+    </div>    
+</div>
+
 
 
 
@@ -160,7 +163,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/nationPub.js"></script>
   <script src="js/diner.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript"></script>
 
 </body>
 </main>

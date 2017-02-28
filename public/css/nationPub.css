@@ -8,29 +8,9 @@ head{
  
 }
 
-
-body{
-    /*background-image: url("https://s-media-cache-ak0.pinimg.com/564x/a9/7a/61/a97a61d1722cf9490a9afdb2b6b9b207.jpg");
-    /*https://s-media-cache-ak0.pinimg.com/564x/4d/76/78/4d76780ab476229a2a26018f82bac283.jpg*/
-
-}
-
 h1{
- 
  color: black; 
- padding: 50px 45px 20px;
- 
- 
-    
-}
-
-#food{
-    float:left;  
-    width:50%;
-}
-
-#drinkar{
-
+ padding: 50px 45px 20px; 
 }
 
 .hr{
@@ -52,16 +32,26 @@ h1{
 }
 
 #order{
-    float:right;
+    position:fixed;
+    width: 300px;
+    height: 100%;
+    right:0px;
+    top: 0px;
+    background-color: grey;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
 }
 
-#kinfo{
-    float:left;
-    width:50%;
-    
-}
 
 #tableFood{
+
+    width:40%;
+    height:15%;
+    left:10px;
+    top:10px;
    background-color: gold;
    color: black;
    border-width: 10px;
@@ -72,20 +62,26 @@ h1{
 }
 
 #tableDrink{
+    width:50%;
+    height:auto;
+    right:10px;
+    top:10px;
    background-color: gold;
    color: black;
    border-width: 10px;
    border-color: gold;
    border-style: outset;
    border-radius: 10px 10px 10px 10px;
-   float: right;
-      
 }
 
 #sideorderTable{
+    position: fixed;
+    left:500px;
+    top: 10px;
+    width:30%;
+    height:150px;
    background-color: gold;
    color: black;
-   float: left;
    border-width: 10px;
    border-color: gold;
    border-style: outset;
@@ -93,6 +89,19 @@ h1{
       
 }
 
+
+#showTable{
+    position: fixed;
+    width: 15%;
+    left:45%;
+    bottom:90px;
+    background-color: gold;
+   color: black;
+   border-width: 10px;
+   border-color: gold;
+   border-style: outset;
+   border-radius: 10px 10px 10px 10px;
+}
 
 input[type=checkbox]
 {
