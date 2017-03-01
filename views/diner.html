@@ -33,12 +33,20 @@
       
           <!-- JOEL: Added tables -->
     <div id=showTable>
-    <select v-model="selected" id="tableId">
-      <option v-for="option in options" v-bind:value="option.value">
-        {{ option.text }}
-      </option>
-    </select>
-    <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+    <!-- <select v-model="selected" id="tableId"> -->
+    <!--   <option v-for="option in options" v-bind:value="option.value"> -->
+    <!--     {{ option.text }} -->
+    <!--   </option> -->
+    <!-- </select> -->
+		
+		<form>
+			<div v-for="option in options">
+					 <input id="{{option.value}}" v-bind:value="option.value" type="radio" name="table">
+					 <label for="{{option.value}}">{{option.value}}</label>
+			</div>
+		</form>
+		
+    <button onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
     <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
     <div id="layout"></div>
     <br/><br/>

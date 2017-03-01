@@ -75,13 +75,25 @@ new Vue({
             }).map(function(i) {
                 return i.value;
             });
-            var tablelist = document.getElementById('tableId');
-            var tablenr = 0;
-            for (var j = 0; j < tablelist.length; j++) {
-                if(tablelist.options[j].selected) {
-                    var tablenr = tablelist.options[j].value; 
-                }
-            }
+
+						// THIS IS FOR DROPDOWN SELECT
+            // var tablelist = document.getElementById('tableId');
+            // var tablenr = 0;
+            // for (var j = 0; j < tablelist.length; j++) {
+            //     if(tablelist.options[j].selected) {
+            //         var tablenr = tablelist.options[j].value; 
+            //     }
+            // }
+
+						// THIS IS FOR RADIOBUTTONS
+						var tablenr = 0;
+						var radios = document.getElementsByName('table');
+						for (var i = 0, length = radios.length; i < length; i++) {
+								if (radios[i].checked) {
+										tablenr = radios[i].value;
+										break;
+								}
+						}
 
 						var orderItems = mainCourse.concat(extras).concat(theRest);
 
