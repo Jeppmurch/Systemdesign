@@ -70,9 +70,6 @@ function foodTable(){
     button.style.fontSize = "1.4em";
     button.fontStyle="oblique";
 
-	//label.appendChild(image);
-	//var br = document.createElement("br");
-	//td.appendChild(br);
 	label.appendChild(button);
 	td.appendChild(label);
 
@@ -239,17 +236,14 @@ function identicalDetails(currentDetails, orderDetails){
 
 
 function totalPrice(itemPrice, name){
-	var totalPrice = document.getElementById(name);
 	var totalTotal = document.getElementById('totaltotal');
 
 	var totalius = Number(totalTotal.innerHTML);
-	var newTotal = Number(totalPrice.innerHTML);
 
 	totalius += Number(itemPrice);
-	newTotal += Number(itemPrice);
 
 	totaltotal.innerHTML = totalius;
-	totalPrice.innerHTML = newTotal;
+
 
 }
 
