@@ -91,6 +91,7 @@ new Vue({
 						for (var i = 0, length = radios.length; i < length; i++) {
 								if (radios[i].checked) {
 										tablenr = radios[i].value;
+										radios[i].checked = false;
 										break;
 								}
 						}
