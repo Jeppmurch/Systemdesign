@@ -31,8 +31,8 @@ function show_layout(src, id) {
         img.src = src;
         img.id = "imgId";
         img.value = id;
-        img.width = 600;
-        img.height = 600;
+        img.width = 520;
+        img.height = 520;
         dest.appendChild(img);
     }
     
