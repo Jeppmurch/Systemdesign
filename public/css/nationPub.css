@@ -110,9 +110,30 @@ h1{
 }
 */
 
+#bord{
+    position: relative;
+    top:80px;
+    left:600px;
+    
+}
+#button1{
+    position: relative;
+    bottom:370px;
+}
+
+#button2{
+    position: relative;
+    bottom:370px;
+}
+
+#layout{
+   position: relative;
+    bottom:370px; 
+    
+}
+
 #showTable{
     float: left;
-
     width: 60.5%;
     height: 560px;
     background-color: gold;
