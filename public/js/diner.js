@@ -100,8 +100,8 @@ new Vue({
 						// get the table
 						var ot = document.getElementById('orderTable');
 						var nrRows = ot.rows.length;
-
-						for(var i = 1; i < nrRows - 1; i++) {
+						var foodOrdered = 0;
+						for(var i = 1; i < nrRows; i++, foodOrdered++) {
 								// append relevant info from table rows.
 								orderItems = orderItems.concat(ot.rows[1].cells[0].innerHTML
 																							 + ' st '
@@ -125,15 +125,11 @@ new Vue({
 						var dt = document.getElementById('orderDrink');
 						nrRows = dt.rows.length;
 
-						for(var i = 1; i < nrRows -1; i++) {
+						for(var i = 1; i < nrRows; i++) {
 								dt.rows[1].remove();
 						}
 
-						var foodOrdered = document.getElementById('totalPrice').innerHTML;
-						
 						// reset all 'Total:' fields in table
-						document.getElementById('totalPrice').innerHTML = 0;
-						document.getElementById('totalDrink').innerHTML = 0;
 						document.getElementById('totaltotal').innerHTML = 0;
 						
             // OK, it's not really neat to use two different ways of accomplishing the same thing
@@ -143,7 +139,7 @@ new Vue({
                 orderItems = orderItems.concat('Table: '+tablenr);
             
             // Finally we make use of socket.io's magic to send the stuff to the kitchen
-						if(foodOrdered > 0) {
+						if(foodOrdered) {
 								socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
 						}
 						
