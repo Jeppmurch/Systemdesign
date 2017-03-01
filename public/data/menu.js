@@ -23,6 +23,19 @@ var foods = [
       ]
     },
     {
+      "order": 2,
+      "label": "The Drago",
+      "price": 70,
+      "details": [
+        { "extra": "Pain",
+          "price": 0
+        },
+        { "extra": "Suffering",
+          "price": 10
+        }
+      ]
+    },
+    {
       "order": 3,
       "label": "Veganburgare",
       "price": 65,
@@ -92,13 +105,13 @@ var drinks = [
   },
   {
     "order": 9,
-    "label": "Innis & Gunn Orginal",
+    "label": "Innis n Gunn Orginal",
     "size": 33,
     "price": 65
   },
   {
     "order": 10,
-    "label": "Innis & Gunn Toasted Oak IPA",
+    "label": "Innis n Gunn Toasted Oak IPA",
     "size": 33,
     "price": 65
   },

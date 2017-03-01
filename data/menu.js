@@ -95,16 +95,16 @@ var drinks = [
   },
   {
     "order": 9,
-    "label": "Innis & Gunn Orginal",
+    "label": "Innis and Gunn Orginal",
     "size": 33,
     "price": 65
   },
-  {
+  /*{
     "order": 10,
     "label": "Innis & Gunn Toasted Oak IPA",
     "size": 33,
     "price": 65
-  },
+  },*/
   {
     "order": 11,
     "label": "Liberty Ale",

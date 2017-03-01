@@ -16,13 +16,13 @@
   <div id="orderOnWay">
     <h1>{{ uiLabels.ordersInQueue }}</h1>
     <ol>
-      <li v-for="(item, key) in orders" v-if="!item.done"> 
-        <button v-on:click="markDone(key)">
+      <ul v-for="(item, key) in orders" v-if="!item.done"> 
+        <button id="doneButton" v-on:click="markDone(key)">
         {{ key }} : {{ item.orderItems.join(', ') }} 
         
           <!--{{uiLabels.ready}}-->
         </button>
-      </li>
+      </ul>
     </ol>
       <div id="divorderDone">
         <h1>{{ uiLabels.ordersFinished }}</h1>
@@ -36,7 +36,7 @@
   
   </section>
   <section id="kitchenRight">
-  <img id="picpic" src="pub_map_v1.jpg" height="300" width="300">
+  <img id="picpic" src="pub_map_v1.jpg" height="500" width="500">
   
   <div id="order">
     <h3 id="batch">Batches </h3>

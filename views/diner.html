@@ -22,14 +22,28 @@
       <table>
           
       </table>
+      
     </section>
-    </div>
-
      <section id="sideorderTable">
-      <table>
+      <table id="sideorderTable">
 
       </table>
     </section>
+    </div>  
+      
+          <!-- JOEL: Added tables -->
+    <div id=showTable>
+    <select v-model="selected" id="tableId">
+      <option v-for="option in options" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+    <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
+    <div id="layout"></div>
+    <br/><br/>
+    </div>
+      
       
     <div id="drinkar">
 
@@ -75,19 +89,7 @@
     </label>-->
 
 
-    <!-- JOEL: Added tables -->
-    <div id=showTable>
-    <h1>{{ uiLabels.table }}</h1>
-    <select v-model="selected" id="tableId">
-      <option v-for="option in options" v-bind:value="option.value">
-        {{ option.text }}
-      </option>
-    </select>
-    <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
-    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
-    <div id="layout"></div>
-    <br/><br/>
-    </div>
+
     <!--
     <div id="kinfo">
     <h1>Vad pysslar de med <a href="/kitchen">i köket?</a></h1>
@@ -102,14 +104,15 @@
     </div>
       -->
     <div id="order">
-    <h1>Nuvarande beställning</h1>
     
+    
+<!-- <thead></thead> -->
 
-
-      <table border="1" bgcolor="white" id="currentOrderOverlord">
-        <thead><tr><td>Mat:</td><td>Dryck:</td></tr></thead>
-        <tr>
-          <td>
+      <table border="1" bgcolor="white" id="currentOrderOverlord" width="425px">
+        <tr><td colspan="2" size="2"><p><font size="6">Nuvarande beställning</font></p></td></tr>
+        <tr><td colspan="2">Mat</td></tr>
+          <tr>
+          <td colspan="2">
             <section id="currentOrders">
               <table id="orderTable">
                 <thead>
@@ -125,7 +128,12 @@
               </table>
             </section>
           </td>
-          <td>
+          </tr>
+          
+          <tr><td colspan="2">Dryck</td></tr>
+          
+          <tr>
+          <td colspan="2">
             <section id="drinkOrders">
               <table id="orderDrink">
                 <thead>

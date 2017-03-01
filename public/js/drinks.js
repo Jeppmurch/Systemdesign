@@ -9,9 +9,9 @@ function docLoaded(fn){
 
 
 function drinkTable() {
-	for (var i = 0; i < drinks.length-1; i++){
+	for (var i = 0; i < drinks.length; i++){
 
-		if((i % 3) == 0){
+		if((i % 4) == 0){
 		  var tr = document.createElement('tr');
 		  document.getElementById('tableDrink').appendChild(tr);
 		}
@@ -30,9 +30,10 @@ function drinkTable() {
 
 
 	    button.addEventListener("click", createaddToDrink( td ) );
-	    button.style.height="4em";
-	    button.style.width="20em";
+	    button.style.height="6em";
+	    button.style.width="23em";
 	    button.style.textAlign="center";
+
 	    button.fontStyle="oblique";
 
 
@@ -46,7 +47,7 @@ function drinkTable() {
 function foodTable(){
   for(var i = 0; i < foods.length; i++){
 
-	if((i % 3) == 0){
+	if((i % 2) == 0){
 	  var tr = document.createElement('tr');
 	  document.getElementById('tableFood').appendChild(tr);
 	}
@@ -63,9 +64,10 @@ function foodTable(){
 	button.value = foods[i].label + ", " + foods[i].price + ":-";
 	button.name = foods[i].label;
 	button.addEventListener("click", createAddToList( td ) );
-    button.style.height="100px";
-    button.style.width="150px";
+    button.style.height="133px";
+    button.style.width="250px";
     button.style.textAlign="center";
+    button.style.fontSize = "1.4em";
     button.fontStyle="oblique";
 
 	//label.appendChild(image);
@@ -131,9 +133,10 @@ function sideorderTable(){
     button.value = sideorders[i].label + ", " + sideorders[i].price + ":-";
     button.name = sideorders[i].label;
     button.addEventListener("click", createAddToList( td ) );
-    button.style.height="150px";
-    button.style.width="200px";
+    button.style.height="133px";
+    button.style.width="250px";
     button.style.textAlign="center";
+    button.style.fontSize = "1.4em";
     button.fontStyle="oblique";
 
 
@@ -144,7 +147,7 @@ function sideorderTable(){
 	  var extraList = document.createElement('table');
 
 	  	for(var j = 0; j < sideorders[i].details.length; j++){
-			if( (j % 2) == 0){
+			if( (j % 1) == 0){
 			  	var trDetails = document.createElement('tr');
 			  	extraList.appendChild(trDetails);
 			}

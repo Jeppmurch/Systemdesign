@@ -23,8 +23,7 @@ section{
 }
 
 
-tr:nth-child(even) {background-color: #f2f2f2};
-
+/*
 ol {
     background: #ff9999;
     padding: 20px;
@@ -34,12 +33,13 @@ ul {
     background: #3399ff;
     padding: 20px;
 }
-
+*/
 #orderOnWay{
 }
 
-#orderDone{
-
+#doneButton{
+    width: 800px;
+    height:100px;
 }
 
 #batch{
