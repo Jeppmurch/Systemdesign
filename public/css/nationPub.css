@@ -45,7 +45,7 @@ h1{
     background-color: grey;
    color: black;
    border-width: 10px;
-   border-color: gold;
+   border-color: black;
    border-style: outset;
    border-radius: 10px 10px 10px 10px;
 }
@@ -63,22 +63,7 @@ h1{
    border-style: outset;
    border-radius: 10px 10px 10px 10px;
 }
-/*
-#tableFood{
 
-    width:40%;
-    height:15%;
-    left:10px;
-    top:10px;
-   background-color: gold;
-   color: black;
-   border-width: 10px;
-   border-color: gold;
-   border-style: outset;
-   border-radius: 10px 10px 10px 10px;
-      
-}
-*/
 #tableDrink{
     float: left;
     width:73.8  %;
@@ -93,22 +78,7 @@ h1{
    border-radius: 10px 10px 10px 10px;
 }
 
-/*
-#sideorderTable{
-    position: fixed;
-    left:500px;
-    top: 10px;
-    width:30%;
-    height:150px;
-   background-color: gold;
-   color: black;
-   border-width: 10px;
-   border-color: gold;
-   border-style: outset;
-   border-radius: 10px 10px 10px 10px;
-      
-}
-*/
+
 
 #bord{
     position: relative;
