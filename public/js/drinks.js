@@ -519,6 +519,7 @@ function addToDrink(name){
 function indexPageLoaded(){
   drinkTable(); 
   foodTable();
-  sideorderTable();
+		sideorderTable();
+		show_layout('pub_map_v1.jpg', 1);
 }
 
