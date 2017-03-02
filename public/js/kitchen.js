@@ -1,5 +1,13 @@
 /* global sharedVueStuff, Vue, socket */
 'use strict';
+function docLoaded(fn){
+  if(document.readyState !== 'loading'){
+	fn();
+  }
+  else{
+	document.addEventListener('DOMContentLoaded', fn);
+  }
+}
 
 function show_layout(src, id) {
     var img;
@@ -36,3 +44,8 @@ new Vue({
     }
   }
 });
+
+function indexPageLoaded(){
+ 
+	show_layout('pub_map_v1.jpg', 1);
+}
