@@ -34,11 +34,10 @@ ul {
     padding: 20px;
 }
 */
-#orderOnWay{
-}
+
 
 #doneButton{
-    width: 800px;
+    width: 700px;
     height:100px;
 }
 
@@ -48,18 +47,19 @@ ul {
 }
 
 #orders{
+    width:50%;
+    height:auto;
 	float: left;
 	background-color: white;
-    border: 10px groove black;
 }
 
 #picpic{
 	border: 10px groove black;
-
 }
 
 #kitchenRight{
-     float: right;  
+  width:50%;
+  float: right;  
 }
 
 
