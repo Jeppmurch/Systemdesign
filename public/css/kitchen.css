@@ -12,37 +12,32 @@ h1{
  padding: 50px 45px 20px;
  }
 
-section{
-    margin: auto 100px;
-    text-align: center;
-}
-
-
 
 #doneButton{
-    width: 700px;
+    width: 500px;
     height:100px;
+    font-size: 16px;
 }
 
-#batch{
-	background-color: white;
-    border: 10px inset black;
-}
+
 
 #orders{
-    width:50%;
-    height:auto;
-	float: left;
-	background-color: white;
-}
-
-#picpic{
-	border: 10px groove black;
-}
-
-#kitchenRight{
+ margin-left: 30%;
   width:50%;
-  float: right;  
+  height:auto;
+  /*border: 10px groove black;*/
+}
+#imgId{
+	border: 10px groove black;
+  width:60%;
+  height: 60%;
+}
+
+#kitchenLeft{
+  position: fixed;
+  left:8%;
+  top: 4%;
+  width:30%;  
 }
 
 

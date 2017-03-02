@@ -12,26 +12,29 @@
   </script>
 </head>
 <body>
+
+    <section id="kitchenLeft">
+
+    <div id="layout"></div>
+   <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
+    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
+    </section>
+
   <section id="orders">
   <div id="orderOnWay">
-    <h1>{{ uiLabels.ordersInQueue }}</h1>
+    <!--<h1>{{ uiLabels.ordersInQueue }}</h1>-->
     <ol>
-      <ul v-for="(item, key) in orders" v-if="!item.done"> 
+      <li v-for="(item, key) in orders" v-if="!item.done"> 
         <button id="doneButton" v-on:click="markDone(key)">
         {{ key }} : {{ item.orderItems.join(', ') }} 
         
          
         </button>
-      </ul>
+      </li>
     </ol>
 
   </section>
-  <section id="kitchenRight">
 
-   <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
-    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
-    <div id="layout"></div>
-    <br/><br/>
 
   <!-- <div id="GoBack"> -->
   <!-- <button onclick="goBack()" id="Kbutton">Tillbaka till Matsalen</button> -->
