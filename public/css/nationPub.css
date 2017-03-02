@@ -127,8 +127,8 @@ h1{
 }
 
 #layout{
-   position: relative;
-    bottom:370px; 
+   position: absolute;
+    bottom:395px; 
     
 }
 
