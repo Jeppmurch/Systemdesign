@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/nationPub.css">
   <script src="data/menu.js"></script>
   <script src="js/drinks.js"></script>
-  <!--  <script type="text/javascript" src="data/menu.json"></script> DOESN'T WORK  -->
 
   <script>
     window.onload = docLoaded(indexPageLoaded);
@@ -33,15 +32,26 @@
       
           <!-- JOEL: Added tables -->
     <div id=showTable>
-    <select v-model="selected" id="tableId">
-      <option v-for="option in options" v-bind:value="option.value">
-        {{ option.text }}
-      </option>
-    </select>
-    <button class="fancybox" onclick="show_layout('pub_map_v1.jpg', 1);">Layout 1</button>
-    <button onclick="show_layout('pub_map_v2.jpg', 2);">Layout 2</button>
+    <!-- <select v-model="selected" id="tableId"> -->
+    <!--   <option v-for="option in options" v-bind:value="option.value"> -->
+    <!--     {{ option.text }} -->
+    <!--   </option> -->
+    <!-- </select> -->
+    <form id="bord">
+			<div v-for="option in options">
+					 <input id="{{option.value}}" v-bind:value="option.value" type="radio" name="table">
+					 <label for="{{option.value}}">{{option.text}}</label>
+			</div>
+    </form>
+		
+    <button onclick="show_layout('pub_map_v1.jpg', 1);" id= "button1">Layout 1</button>
+    <button onclick="show_layout('pub_map_v2.jpg', 2);" id= "button2">Layout 2</button>
+        
+    
     <div id="layout"></div>
-    <br/><br/>
+    
+     
+    <!--<br/><br/>-->
     </div>
       
       
@@ -55,39 +65,6 @@
       
       
     </div>  
-      
-
-
-    <!--<div v-for="menuitem in menu.foods">
-      <h2>
-        <label>
-          <input type="checkbox" v-model="mainDish" :value="menuitem.label" />
-          {{menuitem.label}}, {{menuitem.price}}:-
-        </label>
-      </h2> 
-      <div>
-        Extra: 
-        <label v-for="detail in menuitem.details">
-          <input type="checkbox" v-model="extras" :value="menuitem.label + '::' + detail.extra" />
-          {{detail.extra}}, {{detail.price}}:-
-        </label>      
-      </div>
-    </div> -->
-   
-
-    <!--<label v-for="menuitem in menu.sideorders">
-      <input type="checkbox" name="item[]" :value="menuitem.label" />
-      {{menuitem.label}}, {{menuitem.price}}:-
-    </label>-->
-    
-
-    <!--<label v-for="menuitem in menu.drinks">
-      
-      <input type="checkbox" name="item[]" :value="menuitem.label" />
-      {{menuitem.label}}, {{menuitem.size}} cl, {{menuitem.price}}:-
-
-    </label>-->
-
 
 
     <!--
@@ -106,7 +83,6 @@
     <div id="order">
     
     
-<!-- <thead></thead> -->
 
       <table border="1" bgcolor="white" id="currentOrderOverlord" width="425px">
         <tr><td colspan="2" size="2"><p><font size="6">Nuvarande beställning</font></p></td></tr>
@@ -120,11 +96,6 @@
                     <td>Antal</td><td>Vara</td><td>Extra</td><td>Pris</td>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <td></td><td colspan="2">Total:</td><td id="totalPrice">0</td>
-                  </tr>
-                </tfoot>
               </table>
             </section>
           </td>
@@ -141,11 +112,6 @@
                     <td>Antal</td><td colspan="2">Vara</td><td>Pris</td>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <td></td><td colspan="2">Total:</td><td id="totalDrink">0</td>
-                  </tr>
-                </tfoot>
               </table>
             </section>
           </td>

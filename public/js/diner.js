@@ -31,8 +31,8 @@ function show_layout(src, id) {
         img.src = src;
         img.id = "imgId";
         img.value = id;
-        img.width = 600;
-        img.height = 600;
+        img.width = 520;
+        img.height = 520;
         dest.appendChild(img);
     }
     
@@ -75,21 +75,34 @@ new Vue({
             }).map(function(i) {
                 return i.value;
             });
-            var tablelist = document.getElementById('tableId');
-            var tablenr = 0;
-            for (var j = 0; j < tablelist.length; j++) {
-                if(tablelist.options[j].selected) {
-                    var tablenr = tablelist.options[j].value; 
-                }
-            }
+
+						// THIS IS FOR DROPDOWN SELECT
+            // var tablelist = document.getElementById('tableId');
+            // var tablenr = 0;
+            // for (var j = 0; j < tablelist.length; j++) {
+            //     if(tablelist.options[j].selected) {
+            //         var tablenr = tablelist.options[j].value; 
+            //     }
+            // }
+
+						// THIS IS FOR RADIOBUTTONS
+						var tablenr = 0;
+						var radios = document.getElementsByName('table');
+						for (var i = 0, length = radios.length; i < length; i++) {
+								if (radios[i].checked) {
+										tablenr = radios[i].value;
+										radios[i].checked = false;
+										break;
+								}
+						}
 
 						var orderItems = mainCourse.concat(extras).concat(theRest);
 
 						// get the table
 						var ot = document.getElementById('orderTable');
 						var nrRows = ot.rows.length;
-
-						for(var i = 1; i < nrRows - 1; i++) {
+						var foodOrdered = 0;
+						for(var i = 1; i < nrRows; i++, foodOrdered++) {
 								// append relevant info from table rows.
 								orderItems = orderItems.concat(ot.rows[1].cells[0].innerHTML
 																							 + ' st '
@@ -113,15 +126,11 @@ new Vue({
 						var dt = document.getElementById('orderDrink');
 						nrRows = dt.rows.length;
 
-						for(var i = 1; i < nrRows -1; i++) {
+						for(var i = 1; i < nrRows; i++) {
 								dt.rows[1].remove();
 						}
 
-						var foodOrdered = document.getElementById('totalPrice').innerHTML;
-						
 						// reset all 'Total:' fields in table
-						document.getElementById('totalPrice').innerHTML = 0;
-						document.getElementById('totalDrink').innerHTML = 0;
 						document.getElementById('totaltotal').innerHTML = 0;
 						
             // OK, it's not really neat to use two different ways of accomplishing the same thing
@@ -131,7 +140,7 @@ new Vue({
                 orderItems = orderItems.concat('Table: '+tablenr);
             
             // Finally we make use of socket.io's magic to send the stuff to the kitchen
-						if(foodOrdered > 0) {
+						if(foodOrdered) {
 								socket.emit('order', {orderId: getOrderNumber(), orderItems: orderItems});
 						}
 						
