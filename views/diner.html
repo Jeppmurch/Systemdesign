@@ -31,28 +31,43 @@
     </div>  
       
           <!-- JOEL: Added tables -->
-    <div id=showTable>
-    <!-- <select v-model="selected" id="tableId"> -->
-    <!--   <option v-for="option in options" v-bind:value="option.value"> -->
-    <!--     {{ option.text }} -->
-    <!--   </option> -->
-    <!-- </select> -->
-    <form id="bord">
+<div id=showTable>	
+<table>
+  <tr>
+    <td>
+		    <button onclick="show_layout('pub_map_v1.jpg', 1);" id= "button1">Layout 1</button>
+    		<button onclick="show_layout('pub_map_v2.jpg', 2);" id= "button2">Layout 2</button>
+		</td>
+    <td rowspan="2">
+		<form id="bord">
 			<div v-for="option in options">
 					 <input id="{{option.value}}" v-bind:value="option.value" type="radio" name="table">
 					 <label for="{{option.value}}">{{option.text}}</label>
 			</div>
     </form>
+		</td>
+  </tr>
+  <tr>
+    <td>
+		    <div id="layout"></div>
+    		</div>
+		</td>
+  </tr>
+</table>
+
+
+
+    <!-- <select v-model="selected" id="tableId"> -->
+    <!--   <option v-for="option in options" v-bind:value="option.value"> -->
+    <!--     {{ option.text }} -->
+    <!--   </option> -->
+    <!-- </select> -->
+
 		
-    <button onclick="show_layout('pub_map_v1.jpg', 1);" id= "button1">Layout 1</button>
-    <button onclick="show_layout('pub_map_v2.jpg', 2);" id= "button2">Layout 2</button>
+
         
     
-    <div id="layout"></div>
-    
-     
-    <!--<br/><br/>-->
-    </div>
+
       
       
     <div id="drinkar">

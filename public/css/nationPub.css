@@ -80,33 +80,34 @@ h1{
 
 
 
-#bord{
-    position: relative;
-    top:80px;
-    left:600px;
+/* #bord{ */
+/*     position: relative; */
+/*     top:80px; */
+/*     left:600px; */
     
-}
-#button1{
-    position: relative;
-    bottom:370px;
-}
+/* } */
+/* #button1{ */
+/*     position: relative; */
+/*     bottom:370px; */
+/* } */
 
-#button2{
-    position: relative;
-    bottom:370px;
-}
+/* #button2{ */
+/*     position: relative; */
+/*     bottom:370px; */
+/* } */
 
 #layout{
-   position: absolute;
-    bottom:355px;
-    
-}
+   /* position: absolute; */
+   /* bottom:355px; */
+    width:520px;
+		height:520px;
+		}
 
 #showTable{
-    float: left;
-    width: 60.5%;
-    height: 560px;
-    background-color: gold;
+    /* float: left; */
+/*     width: 60.5%; */
+    /* height: 560px; */
+   background-color: gold;
    color: black;
    border-width: 10px;
    border-color: gold;
